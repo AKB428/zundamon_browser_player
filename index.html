@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ずんだもん×四国めたん 会話劇</title>
+  <style>
+    body {
+      margin: 0; padding: 0;
+      background-color: #000;
+    }
+    #stage {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      margin: 0 auto; /* 中央寄せ */
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+    }
+    .character {
+      position: absolute;
+      bottom: 0;
+      width: 600px; /* 立ち絵のサイズ調整など */
+    }
+    #charLeft {
+      left: 0;
+    }
+    #charRight {
+      right: 0;
+    }
+    /* セリフ表示用 */
+    #dialogueBox {
+      position: absolute;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1200px; /* セリフ枠の横幅 */
+      min-height: 100px;
+      background-color: rgba(0,0,0,0.5);
+      border-radius: 10px;
+      padding: 20px;
+      cursor: pointer; /* クリック可能であることを示す */
+    }
+    #dialogueText {
+      font-size: 40px;
+      color: #ffffff; /* デフォルトの文字色 */
+      text-shadow: 2px 2px 4px #000; /* 縁取り */
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="stage">
+    <img id="charLeft" class="character" src="" alt="左キャラ">
+    <img id="charRight" class="character" src="" alt="右キャラ">
+    
+    <!-- セリフ表示用のボックス。クリックで次へ進む -->
+    <div id="dialogueBox">
+      <p id="dialogueText"></p>
+    </div>
+  </div>
+  <script src="engine.js"></script>
+</body>
+</html>

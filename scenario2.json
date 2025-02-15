@@ -1,0 +1,116 @@
+{
+    "backgrounds": {
+      "1": "bg1.png",
+      "2": "bg1.png",
+      "3": "bg1.png",
+      "4": "bg2.png"
+    },
+    "defaultLeftCharacter": "四国めたん-ノーマル.png",
+    "defaultRightCharacter": "ずんだもん-ノーマル.png",
+    "scenes": [
+      {
+        "setBackground": "1",
+        "lines": [
+          {
+            "character": "ずんだもん",
+            "serif": "今日は雨がふりそうなのだ",
+            "sound": "1.wav",
+            "images": ["ずんだもん-喋り1.png", "ずんだもん-喋り2.png"],
+            "color": "#00ff00" 
+          },
+          {
+            "character": "四国めたん",
+            "serif": "そうね、曇ってきたわね",
+            "sound": "2.wav",
+            "images": ["四国めたん-喋り1.png", "四国めたん-喋り2.png"],
+            "color": "#ff00ff"
+          }
+        ]
+      },
+      {
+        "setBackground": "2",
+        "lines": [
+          {
+            "character": "ずんだもん",
+            "serif": "本を買いに行こうと思ってたのに最悪なのだ",
+            "sound": "3.wav",
+            "images": ["ずんだもん-喋り1.png", "ずんだもん-喋り2.png"],
+            "color": "#00ff00"
+          },
+          {
+            "character": "四国めたん",
+            "serif": "傘を持っていったらいいんじゃないかしら？",
+            "sound": "4.wav",
+            "images": ["四国めたん-喋り1.png", "四国めたん-喋り2.png"],
+            "color": "#ff00ff"
+          },
+          {
+            "character": "ずんだもん",
+            "serif": "傘は高いのだ。そんなものにお金を使うのはもったいないのだ！",
+            "sound": "5.wav",
+            "images": ["ずんだもん-喋り1.png", "ずんだもん-喋り2.png"],
+            "color": "#00ff00"
+          },
+          {
+            "character": "四国めたん",
+            "serif": "だったら、私の傘に入ればいいわよ",
+            "sound": "6.wav",
+            "images": ["四国めたん-喋り1.png", "四国めたん-喋り2.png"],
+            "color": "#ff00ff"
+          }
+        ]
+      },
+      {
+        "setBackground": "3",
+        "lines": [
+          {
+            "character": "ずんだもん",
+            "serif": "それなら、仕方なく入ってやるのだ！",
+            "sound": "7.wav",
+            "images": ["ずんだもん-喋り1.png", "ずんだもん-喋り2.png"],
+            "color": "#00ff00"
+          },
+          {
+            "character": "四国めたん",
+            "serif": "はいはい。じゃあ、本屋に向かいましょう",
+            "sound": "8.wav",
+            "images": ["四国めたん-喋り1.png", "四国めたん-喋り2.png"],
+            "color": "#ff00ff"
+          }
+        ]
+      },
+      {
+        "setBackground": "4",
+        "lines": [
+          {
+            "character": "ずんだもん",
+            "serif": "よし！雨がやむまでここに居座るのだ！",
+            "sound": "9.wav",
+            "images": ["ずんだもん-喋り1.png", "ずんだもん-喋り2.png"],
+            "color": "#00ff00"
+          },
+          {
+            "character": "四国めたん",
+            "serif": "そろそろ閉店のアナウンスが流れてきたわよ、どうするのずんだもん？",
+            "sound": "10.wav",
+            "images": ["四国めたん-喋り1.png", "四国めたん-喋り2.png"],
+            "color": "#ff00ff"
+          },
+          {
+            "character": "ずんだもん",
+            "serif": "えええ！？まだ雨降ってるのに…！",
+            "sound": "11.wav",
+            "images": ["ずんだもん-喋り1.png", "ずんだもん-喋り2.png"],
+            "color": "#00ff00"
+          },
+          {
+            "character": "四国めたん",
+            "serif": "仕方ないわね。そろそろ帰りましょうか",
+            "sound": "12.wav",
+            "images": ["四国めたん-喋り1.png", "四国めたん-喋り2.png"],
+            "color": "#ff00ff"
+          }
+        ]
+      }
+    ]
+}

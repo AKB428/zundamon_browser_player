@@ -1,0 +1,49 @@
+{
+    "backgrounds": {
+      "1": "bg1.png",
+      "2": "bg1.png"
+    },
+    "defaultLeftCharacter": "四国めたん-ノーマル.png",
+    "defaultRightCharacter": "ずんだもん-ノーマル.png",
+    "scenes": [
+      {
+        "setBackground": "1",
+        "lines": [
+          {
+            "character": "ずんだもん",
+            "serif": "今日は雨がふりそうなのだ",
+            "sound": "1.wav",
+            "images": ["ずんだもん-喋り1.png", "ずんだもん-喋り2.png"],
+            "color": "#00ff00" 
+          },
+          {
+            "character": "四国めたん",
+            "serif": "そうね、曇ってきたわね",
+            "sound": "2.wav",
+            "images": ["四国めたん-喋り1.png", "四国めたん-喋り2.png"],
+            "color": "#ff00ff"
+          }
+        ]
+      },
+      {
+        "setBackground": "2",
+        "lines": [
+          {
+            "character": "ずんだもん",
+            "serif": "本を買いに行こうと思ってたのに最悪なのだ",
+            "sound": "3.wav",
+            "images": ["ずんだもん-喋り1.png", "ずんだもん-喋り2.png"],
+            "color": "#00ff00"
+          },
+          {
+            "character": "四国めたん",
+            "serif": "傘を持っていったらいいんじゃないかしら？",
+            "sound": "4.wav",
+            "images": ["四国めたん-喋り1.png", "四国めたん-喋り2.png"],
+            "color": "#ff00ff"
+          }
+        ]
+      }
+    ]
+  }
+  
