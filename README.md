@@ -45,6 +45,10 @@ VSCodeの「Live Preview拡張」などサーバー経由でindex.htmlを開く�
 
 https://youtu.be/xfD-iXySyfA
 
+## デモページ
+
+https://akb428.github.io/zundamon_browser_player/
+
 
 ## イラストなど素材元
 
