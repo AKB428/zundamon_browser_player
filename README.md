@@ -12,7 +12,7 @@ VOICEVOXをインストール　https://voicevox.hiroshiba.jp/
 
 VOICEVOXを起動してサーバーAPIを使用
 
-##　手順1 シナリオのライティング
+## 手順1 シナリオのライティング
 
 シナリオファイルを書くscenario2.json などを変更
 scenario2.jsonにあわせてプログラムやLLM等で生成してもよい
