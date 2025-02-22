@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ずんだもん×四国めたん 会話劇</title>
+  <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+    }
+    /* ステージ: 最大幅1920px、幅100%、16:9のアスペクト比 */
+    #stage {
+      position: relative;
+      width: 100%;
+      max-width: 1920px;
+      aspect-ratio: 16 / 9;
+      margin: 0 auto;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+    }
+    /* キャラクターはステージ幅に対して30%程度 */
+    .character {
+      position: absolute;
+      bottom: 0;
+      width: 30%;
+    }
+    #charLeft {
+      left: 0;
+    }
+    #charRight {
+      right: 0;
+    }
+    /* セリフ表示用 */
+    #dialogueBox {
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      min-height: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      padding: 1rem;
+      cursor: pointer;
+    }
+    #dialogueText {
+      font-size: 2rem;
+      color: #ffffff;
+      text-shadow: 2px 2px 4px #000;
+      margin: 0;
+    }
+    /* 小さい画面向けの調整 */
+    @media (max-width: 768px) {
+      #dialogueText {
+        font-size: 1.5rem;
+      }
+      .character {
+        width: 40%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="stage">
+    <img id="charLeft" class="character" src="" alt="左キャラ">
+    <img id="charRight" class="character" src="" alt="右キャラ">
+    
+    <!-- セリフ表示用のボックス。クリックで次へ進む -->
+    <div id="dialogueBox">
+      <p id="dialogueText"></p>
+    </div>
+  </div>
+  <script src="engine.js"></script>
+</body>
+</html>
