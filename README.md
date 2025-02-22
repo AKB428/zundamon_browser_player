@@ -42,7 +42,7 @@ GOOS=windows go build -o voice_generator.exe main.go
 
 ### 実行
 ```
-./voice_generator scenario2.json 
+./voice_generator scenario.json 
 ```
 
 ## サーバー経由でindex.htmlをブラウザで開く
