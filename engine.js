@@ -6,7 +6,7 @@ let speakingInterval = null; // 口パク切り替え用タイマー
 
 window.addEventListener("load", () => {
   // シナリオJSONを読み込む
-  fetch("scenario2.json")
+  fetch("scenario.json")
     .then(res => res.json())
     .then(data => {
       scenarioData = data;
@@ -21,20 +21,26 @@ window.addEventListener("load", () => {
   });
 });
 
+let currentBackground = null;
+
 function setupScene(sceneIndex) {
   currentSceneIndex = sceneIndex;
   currentLineIndex = 0;
   const scene = scenarioData.scenes[sceneIndex];
 
-  // 背景設定
+  // 背景設定：シーンの setBackground が現在の背景と異なる場合のみ更新
   const bgId = scene.setBackground;
-  const bgFile = scenarioData.backgrounds[bgId];
-  document.getElementById("stage").style.backgroundImage = `url(${bgFile})`;
-
+  const newBgFile = scenarioData.backgrounds[bgId];
+  if (newBgFile !== currentBackground) {
+    document.getElementById("stage").style.backgroundImage = `url(${newBgFile})`;
+    currentBackground = newBgFile;
+  }
+  
   // デフォルト画像をセット
   document.getElementById("charLeft").src = scenarioData.defaultLeftCharacter;
   document.getElementById("charRight").src = scenarioData.defaultRightCharacter;
 
+  // ※ セリフの再生はユーザーのクリックで開始する（初回は待つ）
 }
 
 function playNextLine() {
