@@ -1,4 +1,5 @@
 import os
+import sys
 import ollama         # ollama の公式ライブラリ
 import requests
 import json
@@ -96,7 +97,7 @@ def parse_scenario(scenario_text):
     例）
       入力行：　ずんだもん:「オーバーツーリズムって、〜」
       出力： {"character": "ずんだもん", "serif": "オーバーツーリズムって、〜", ...}
-    
+
     さらに、キャラクターに応じて以下のプロパティを自動付与する：
       ・ずんだもんの場合:
           images: ["ずんだもん-喋り1.png", "ずんだもん-喋り2.png"],
@@ -143,6 +144,7 @@ def build_scenario_json(conversation):
     """
     解析した会話（発話リスト）をもとに、シナリオ設定ファイルのJSON構造を生成する。
     ※ 背景は出力時に各シーンごとに setBackground を出力するが、基本は固定背景とする。
+    ここでは、2名の会話が終わるごとに1シーンとする例を示す。
     """
     scenario_json = {
         "backgrounds": {
@@ -154,12 +156,9 @@ def build_scenario_json(conversation):
         "scenes": []
     }
     
-    # ここでは、2名の会話が終わるごとに1シーンとする
-    # 今回はconversationは発話リスト（各発話の辞書）のリストとする
-    # 例えば、2つの発話（ずんだもんと四国めたん）のペアを1シーンにまとめる
+    # 2つの発話を1シーンにまとめる
     for i in range(0, len(conversation), 2):
         scene_lines = conversation[i:i+2]
-        # シーンの背景は固定（後から手動で変更しやすいように setBackground "1" を入れる）
         scene = {
             "setBackground": "1",
             "lines": scene_lines
@@ -171,11 +170,17 @@ def build_scenario_json(conversation):
 # 4. メイン処理
 # ---------------------------------------------
 def main():
-    # 複数行入力に対応したプロンプトを取得
-    prompt = get_prompt_input()
+    # コマンドライン引数がある場合、第一引数が特定のオプション（例: "--file"）なら
+    # 第二引数のファイルからシナリオテキストを読み込む。
+    if len(sys.argv) >= 3 and sys.argv[1] == "--file":
+        input_file = sys.argv[2]
+        with open(input_file, "r", encoding="utf-8") as f:
+            scenario_text = f.read()
+    else:
+        # それ以外は従来のプロンプト入力とLLM生成
+        prompt = get_prompt_input()
+        scenario_text = generate_scenario(prompt)
     
-    # LLMでシナリオ生成（テキスト形式）
-    scenario_text = generate_scenario(prompt)
     print("\n===== 生成されたシナリオ（テキスト） =====")
     print(scenario_text)
     print("============================================\n")

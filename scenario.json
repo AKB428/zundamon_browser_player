@@ -7,6 +7,12 @@
     },
     "defaultLeftCharacter": "四国めたん-ノーマル.png",
     "defaultRightCharacter": "ずんだもん-ノーマル.png",
+
+    "bgm": {
+      "file": "music_fx_bgm.mp3",
+      "volume": 0.3
+    },
+
     "scenes": [
       {
         "setBackground": "1",

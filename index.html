@@ -7,47 +7,57 @@
     /* Reset */
     * {
       box-sizing: border-box;
-    }
-    body {
       margin: 0;
       padding: 0;
+    }
+    body {
       background-color: #000;
     }
-    /* ステージ: 最大幅1920px、幅100%、16:9のアスペクト比 */
+    /* ステージをレスポンシブに（16:9維持） */
     #stage {
       position: relative;
       width: 100%;
       max-width: 1920px;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 16 / 9; /* ブラウザ対応が不十分なら padding-top トリックを検討 */
       margin: 0 auto;
       overflow: hidden;
       background-size: cover;
       background-position: center;
     }
-    /* キャラクターはステージ幅に対して30%程度 */
-    .character {
+    /* キャラクターコンテナ: 幅/高さを%で指定して上半身だけ見せる */
+    .character-container {
       position: absolute;
       bottom: 0;
-      width: 30%;
+      width: 25%;    /* ステージ幅の25% */
+      height: 50%;   /* ステージ高さの50% */
+      overflow: hidden;  /* 下半身がはみ出る分を隠す */
     }
-    #charLeft {
+    .left-container {
       left: 0;
     }
-    #charRight {
+    .right-container {
       right: 0;
     }
-    /* セリフ表示用 */
+    /* キャラクター画像: コンテナに合わせて拡大縮小 */
+    .character {
+      position: absolute;
+      top: 0; 
+      left: 0;
+      width: 100%;
+      height: auto;
+    }
+    /* セリフ表示用のボックス */
     #dialogueBox {
       position: absolute;
       bottom: 5%;
       left: 50%;
       transform: translateX(-50%);
-      width: 80%;
+      width: 80%; /* セリフ枠の横幅（ステージ幅の80%） */
       min-height: 50px;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0,0,0,0.5);
       border-radius: 10px;
       padding: 1rem;
-      cursor: pointer;
+      cursor: pointer; 
     }
     #dialogueText {
       font-size: 2rem;
@@ -55,22 +65,28 @@
       text-shadow: 2px 2px 4px #000;
       margin: 0;
     }
-    /* 小さい画面向けの調整 */
+    /* 小さい画面向けのメディアクエリ */
     @media (max-width: 768px) {
+      .character-container {
+        width: 35%;    /* 画面が小さい時は少し大きめに */
+        height: 45%;
+      }
       #dialogueText {
         font-size: 1.5rem;
-      }
-      .character {
-        width: 40%;
       }
     }
   </style>
 </head>
 <body>
   <div id="stage">
-    <img id="charLeft" class="character" src="" alt="左キャラ">
-    <img id="charRight" class="character" src="" alt="右キャラ">
-    
+    <!-- 左キャラ用のコンテナ -->
+    <div class="character-container left-container">
+      <img id="charLeft" class="character" src="" alt="左キャラ">
+    </div>
+    <!-- 右キャラ用のコンテナ -->
+    <div class="character-container right-container">
+      <img id="charRight" class="character" src="" alt="右キャラ">
+    </div>
     <!-- セリフ表示用のボックス。クリックで次へ進む -->
     <div id="dialogueBox">
       <p id="dialogueText"></p>
